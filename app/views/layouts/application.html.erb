@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="header">
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-left">
+            <span class="title">Bookers</span>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+            <li><%= link_to "Home", user_path(current_user.id),class:"glyphicon glyphicon-home" %></a></li>
+            <li><%= link_to "Users", "/users",class:"glyphicon glyphicon-user" %></a></li>
+            <li><%= link_to "Books", "/books",class:"glyphicon glyphicon-book" %></a></li>
+            <li><%= link_to "log out", destroy_user_session_path,class:" glyphicon  glyphicon-log-out",method: :delete %></li>
 
-  <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "Home", "#" %>
-      </li>
-      <li>
-        <%= link_to "User", "#" %>
-      </li>
-      <li>
-        <%= link_to "Books", "#" %>
-      </li>
-      <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "About", "#" %>
-      </li>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "login", new_user_session_path %>
-      </li>
-    <% end %>
-    <%= yield %>
+          <% else %>
+            <li><%= link_to"Home",root_path,  class:"glyphicon glyphicon-home" %></li>
+            <li><%= link_to"About",home_about_path,class:"glyphicon glyphicon-link" %></li>
+            <li><%= link_to"Sign up", "/users/sign_up",class:"glyphicon glyphicon-edit sign_up" %></li>
+            <li><%= link_to"login", "/users/sign_in",  class:"glyphicon glyphicon-log-in" %></li>
+          <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="body">
+      <p class="notice"><%= notice %></p>
+      <%= yield %>
+        <footer>
+          <p class="text-right"> CopyRight Infratop.inc</p>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>
