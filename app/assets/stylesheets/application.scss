@@ -16,41 +16,41 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;;
+
+header {
+	color:white;
 }
 
-clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
+.header {
+	margin: 0px;
 }
 
-.title {
-  color: #fff;
-  font-size: 20px;
+header .navbar-left span {
+	font-size: 20px;
+	padding-top: 10px;
+	display:flex;
 }
 
-.body {
-  margin: 55px 10% 0px 8%;
+.navbar-nav {
+	display: flex;
 }
 
-.notice {
-  color: green;
+body {
+	margin-top: 40px;
 }
 
-.error {
-  color: red;
-}
-
-.error-message {
-  font-size: 12px;
-  list-style: square;
-  margin-left: 60px;
+.field {
+	margin-bottom: 10px;
 }
 
 .actions {
-  margin-top: 5px;
+	margin: 10px 0px;
+}
+
+#error_explanation {
+	color: red;
+}
+
+.notice {
+	color: green;
 }
